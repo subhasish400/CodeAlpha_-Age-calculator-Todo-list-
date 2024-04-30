@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO-LIST Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-image: url("bg.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: sans-serif,"Roboto";
+        }
+        .container{
+            text-align: center;
+            margin-top: 150px;
+            background-color: #ffffff3e;
+            height: 500px;
+            width: 30%;
+            margin-left: 450px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+        }
+        .container h1{
+            margin-top: 10px;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+
+        }
+        .container input{
+            margin-top: 80px;
+            padding: 15px;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .container button{
+            padding: 15px;
+            border: 2px solid black;
+            font-size: 18px;
+            background-color:burlywood ;
+            color: black;
+            font-weight: bold;
+            margin-left: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+        .container button:hover{
+            background-color: gray;
+            color: white;
+        }
+        .text ul{
+            position: relative;
+            padding: 15px;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 18px;
+            width: 73%;
+            margin-top: 10px;
+            margin-left: 60px;
+            background-color: rgb(185, 185, 230);
+            font-weight: bold;
+            
+            
+        }
+        .text ul i{
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Skills</h1>
+        <div class="inputs">
+            <input type="text" placeholder="Enter the Skill:" id="inp">
+            <button onclick="ADD()">ADD</button>
+        </div>
+        <div class="text">
+            
+        </div>
+        <script>
+            let inputs = document.getElementById("inp");
+            let text = document.querySelector(".text");
+            function ADD(){
+                if(inputs.value == ""){
+                    alert("Please enter the skills")
+                }
+                else{
+                    let newelement = document.createElement("ul");
+                    newelement.innerHTML = `${inputs.value}<i class="fa-solid fa-trash"></i>`;
+                    text.appendChild(newelement);
+                    inputs.value="";
+                    newelement.querySelector("i").addEventListener("click", remove);
+                    function remove(){
+                        newelement.remove()
+                    }
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>
